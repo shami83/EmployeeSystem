@@ -1,0 +1,33 @@
+Employee table
+------------------------------------------------
+CREATE TABLE `emp`.`Employee` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `firstname` VARCHAR(100) NOT NULL,
+  `lastname` VARCHAR(100) NOT NULL,
+  `sex` VARCHAR(45) NOT NULL,
+  `address` VARCHAR(100) NOT NULL,
+  `dept` VARCHAR(100),
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB;
+
+ALTER TABLE `emp`.`employee` ADD COLUMN `isadmin` INTEGER UNSIGNED NOT NULL AFTER `dept`;
+
+ALTER TABLE `emp`.`employee` ADD COLUMN `password` VARCHAR(45) NOT NULL AFTER `isadmin`;
+
+------------------------------------------------------
+emp_leave
+-----------------------------------------------------
+CREATE TABLE `emp`.`emp_leave` (
+  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `emp_id` INTEGER UNSIGNED NOT NULL,
+  `from` VARCHAR(100) NOT NULL,
+  `to` VARCHAR(100) NOT NULL,
+  `days` VARCHAR(100),
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB;
+
+ALTER TABLE `emp`.`emp_leave` ADD COLUMN `status` INT(1) UNSIGNED ZEROFILL NOT NULL AFTER `days`;
+
+
